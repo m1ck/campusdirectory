@@ -201,32 +201,95 @@
 
   
 
-<form class="form-inline">
-  <input type="text" class="input"  id="fn" placeholder="First Name">
-  <input type="text" class="input"  id="ln" placeholder="Last Name">
-  <select class="span2" id="restrict">
-                   <option value=""  selected="selected" > All </option>
-                   <option value="stu" > Student </option>
-                   <option value="fas" > Faculty/Staff </option>  
-  </select> 
-  <button type="button" class="btn" id="runquery">Search</button>
-  
-  <label class="checkbox" id="loadlabel">
-    &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;
-  </label>
-</form>
-
-
- <table class="table table-striped table-condensed table-hover"  id="mainContainer">
-              <thead>
-                <tr>                 
-                  <th>First Name</th>
-                  <th>Last Name</th>                
-                </tr>
-              </thead>
-</table>
 
  
+
+
+            <div class="tabbable tabs-right span11">
+                <ul class="nav nav-tabs">
+                  <li class="active"><a href="#rA" data-toggle="tab">People</a></li>
+                  <li><a href="#rB" data-toggle="tab">Departments</a></li>
+                 
+                </ul>
+                <div class="tab-content">
+                      <div class="tab-pane active" id="rA">
+                        
+                        
+                        
+                            <form class="form-inline">
+                              <input type="text" class="input"  id="fn" placeholder="First Name">
+                              <input type="text" class="input"  id="ln" placeholder="Last Name">
+                              <select class="span2" id="restrict">
+                                               <option value=""  selected="selected" > All </option>
+                                               <option value="stu" > Student </option>
+                                               <option value="fas" > Faculty/Staff </option>  
+                              </select> 
+                              <button type="button" class="btn" id="runquery">Search</button>
+                              
+                              <label class="checkbox" id="loadlabel">
+                                &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; 
+                              </label>
+                            </form>
+
+
+                             <table class="table table-striped table-condensed table-hover"  id="mainContainer">
+                                          <thead>
+                                            <tr>                 
+                                              <th>First Name</th>
+                                              <th>Last Name</th>                
+                                            </tr>
+                                          </thead>
+                            </table>
+                        
+                        
+                        
+                       
+                      </div>
+                      <div class="tab-pane" id="rB">
+                       
+                       
+                       
+                        <form class="form-inline">
+                              <input type="text" class="input"  id="title" placeholder="First Name">
+                             
+                              
+                              <button type="button" class="btn" id="runquery">Search</button>
+                              
+                              <label class="checkbox" id="loadlabeldept">
+                                &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; 
+                              </label>
+                             </form>
+
+
+                             <table class="table table-striped table-condensed table-hover"  id="deptmainContainer">
+                                          <thead>
+                                            <tr>                 
+                                              <th>Name</th>
+                                              <th>Phone</th>                
+                                            </tr>
+                                          </thead>
+                            </table>
+                        
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                      </div>               
+                </div>
+            </div> 
 
 
 
@@ -418,7 +481,7 @@ Person.Views.SearchView = Backbone.View.extend({
           },
           
           search:function (q) {
-                  Person.Results = new Person.Collections.Results([], { givenName: q });
+                  Person.Results = new Person.Collections.Results([], { givenName: q ,sn:'' , sc: ''});
                   new Person.Views.Results({ collection: Person.Results }); //Add this line
                   Person.Results.fetch();
           },
@@ -440,8 +503,8 @@ Person.Views.SearchView = Backbone.View.extend({
     
     
     
-    
-    
+  
+    <script src="bootstrap/js/bootstrap-tab.js"></script>
      <script src="bootstrap/js/bootstrap-tooltip.js"></script>
     <script src="bootstrap/js/bootstrap-modal.js"></script>
     <script src="bootstrap/js/bootstrap-popover.js"></script>
